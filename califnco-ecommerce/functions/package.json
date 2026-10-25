@@ -1,0 +1,17 @@
+{
+  "name": "califnco-functions",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "check": "node --check index.js && node --check seed-emulator.js",
+    "seed:emulator": "node seed-emulator.js"
+  },
+  "engines": {
+    "node": "22"
+  },
+  "dependencies": {
+    "firebase-admin": "^14.5.0",
+    "firebase-functions": "^7.4.0",
+    "nodemailer": "^10.2.1"
+  }
+}

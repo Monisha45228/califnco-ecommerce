@@ -1,0 +1,24 @@
+{
+  "name": "califnco-ecommerce",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "powershell -NoProfile -ExecutionPolicy Bypass -File ./run-all.ps1",
+    "setup": "powershell -NoProfile -ExecutionPolicy Bypass -File ./setup.ps1",
+    "dev:emulators": "powershell -NoProfile -ExecutionPolicy Bypass -File ./start-emulators.ps1",
+    "deploy:firebase": "firebase deploy --only firestore:rules,firestore:indexes,functions",
+    "deploy:firestore": "firebase deploy --only firestore:rules,firestore:indexes",
+    "seed:emulator-admin": "npm --prefix functions run seed:emulator",
+    "dev:mobile": "npm --prefix mobile-app run dev",
+    "dev:admin": "npm --prefix admin-panel run dev",
+    "whatsapp:waha": "powershell -NoProfile -ExecutionPolicy Bypass -File ./ai-automation/start-whatsapp-waha.ps1",
+    "whatsapp:daily": "python ./ai-automation/whatsapp_daily_poster.py",
+    "whatsapp:schedule": "powershell -NoProfile -ExecutionPolicy Bypass -File ./ai-automation/install-whatsapp-daily-task.ps1",
+    "build": "npm run build:mobile && npm run build:admin",
+    "build:mobile": "npm --prefix mobile-app run build",
+    "build:admin": "npm --prefix admin-panel run build",
+    "typecheck": "npm run typecheck:mobile && npm run typecheck:admin",
+    "typecheck:mobile": "npm --prefix mobile-app run typecheck",
+    "typecheck:admin": "npm --prefix admin-panel run typecheck"
+  },
+  "private": true
+}

@@ -1,0 +1,61 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "1. Run Mobile App (Port 3001)",
+      "type": "shell",
+      "command": "npm run dev",
+      "options": {
+        "cwd": "${workspaceFolder}/mobile-app"
+      },
+      "isBackground": true,
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "group": "califnco"
+      }
+    },
+    {
+      "label": "2. Run Admin Panel (Port 3000)",
+      "type": "shell",
+      "command": "npm run dev",
+      "options": {
+        "cwd": "${workspaceFolder}/admin-panel"
+      },
+      "isBackground": true,
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "group": "califnco"
+      }
+    },
+    {
+      "label": "3. Run AI Daily Instagram Poster",
+      "type": "shell",
+      "command": "python -X utf8 instagram_daily_poster.py",
+      "options": {
+        "cwd": "${workspaceFolder}/ai-automation"
+      },
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "group": "califnco"
+      }
+    },
+    {
+      "label": "Start All Services (Mobile + Admin)",
+      "dependsOn": [
+        "1. Run Mobile App (Port 3001)",
+        "2. Run Admin Panel (Port 3000)"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": []
+    }
+  ]
+}

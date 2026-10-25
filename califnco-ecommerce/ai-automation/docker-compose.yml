@@ -1,0 +1,19 @@
+services:
+  waha:
+    image: devlikeapro/waha:latest
+    container_name: califnco-waha
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:3008:3000"
+    environment:
+      WAHA_API_KEY: ${WAHA_API_KEY:?Set WAHA_API_KEY in ai-automation/.env}
+      WAHA_DASHBOARD_USERNAME: ${WAHA_DASHBOARD_USERNAME:-admin}
+      WAHA_DASHBOARD_PASSWORD: ${WAHA_DASHBOARD_PASSWORD:?Set WAHA_DASHBOARD_PASSWORD in ai-automation/.env}
+      WAHA_LOG_FORMAT: JSON
+      WAHA_LOG_LEVEL: info
+      WHATSAPP_DEFAULT_ENGINE: NOWEB
+    volumes:
+      - waha_sessions:/app/.sessions
+
+volumes:
+  waha_sessions:
